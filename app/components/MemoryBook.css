@@ -1,0 +1,1955 @@
+/* =========================================================
+   MEMORY BOOK SCREEN
+========================================================= */
+
+.memory-book-screen {
+  position: relative;
+  width: 100%;
+  min-height: 100dvh;
+
+  box-sizing: border-box;
+
+  overflow-x: hidden;
+  overflow-y: auto;
+
+  padding: 50px 24px 60px;
+
+  background:
+    radial-gradient(
+      circle at 50% 18%,
+      rgba(140, 30, 85, 0.24),
+      transparent 35%
+    ),
+    radial-gradient(
+      circle at 10% 70%,
+      rgba(90, 20, 70, 0.18),
+      transparent 30%
+    ),
+    linear-gradient(
+      180deg,
+      #050205 0%,
+      #10040d 50%,
+      #050204 100%
+    );
+
+  color: #ffffff;
+
+  -webkit-overflow-scrolling: touch;
+}
+
+
+/* =========================================================
+   BACKGROUND
+========================================================= */
+
+.memory-background {
+  position: absolute;
+  inset: 0;
+
+  overflow: hidden;
+
+  pointer-events: none;
+}
+
+.memory-glow {
+  position: absolute;
+
+  border-radius: 50%;
+
+  filter: blur(110px);
+
+  opacity: 0.16;
+}
+
+.memory-glow-one {
+  width: 460px;
+  height: 460px;
+
+  left: -140px;
+  top: -30px;
+
+  background: #ff2994;
+}
+
+.memory-glow-two {
+  width: 420px;
+  height: 420px;
+
+  right: -130px;
+  top: 25%;
+
+  background: #9c36ff;
+}
+
+
+/* =========================================================
+   FLOATING HEARTS
+========================================================= */
+
+.memory-hearts span {
+  position: absolute;
+
+  color: rgba(255, 80, 160, 0.22);
+
+  text-shadow:
+    0 0 14px rgba(255, 80, 160, 0.28);
+
+  animation:
+    memory-heart-float
+    7s
+    ease-in-out
+    infinite;
+}
+
+.memory-hearts span:nth-child(1) {
+  left: 6%;
+  top: 15%;
+  font-size: 25px;
+}
+
+.memory-hearts span:nth-child(2) {
+  left: 17%;
+  top: 70%;
+  font-size: 16px;
+  animation-delay: 1s;
+}
+
+.memory-hearts span:nth-child(3) {
+  right: 8%;
+  top: 22%;
+  font-size: 31px;
+  animation-delay: 2s;
+}
+
+.memory-hearts span:nth-child(4) {
+  right: 15%;
+  top: 65%;
+  font-size: 19px;
+  animation-delay: 3s;
+}
+
+.memory-hearts span:nth-child(5) {
+  left: 40%;
+  top: 10%;
+  font-size: 17px;
+  animation-delay: 4s;
+}
+
+.memory-hearts span:nth-child(6) {
+  right: 42%;
+  top: 73%;
+  font-size: 14px;
+  animation-delay: 5s;
+}
+
+@keyframes memory-heart-float {
+  0%,
+  100% {
+    opacity: 0.2;
+
+    transform:
+      translateY(0)
+      rotate(-5deg);
+  }
+
+  50% {
+    opacity: 0.65;
+
+    transform:
+      translateY(-20px)
+      rotate(5deg);
+  }
+}
+
+
+/* =========================================================
+   BACKGROUND POLAROIDS
+========================================================= */
+
+.polaroid {
+  position: absolute;
+
+  width: 180px;
+  height: 220px;
+
+  padding: 12px 12px 34px;
+
+  box-sizing: border-box;
+
+  background:
+    rgba(255, 238, 245, 0.055);
+
+  border:
+    1px solid
+    rgba(255, 160, 200, 0.1);
+
+  box-shadow:
+    0 20px 50px
+    rgba(0, 0, 0, 0.25);
+
+  opacity: 0.3;
+
+  backdrop-filter: blur(2px);
+}
+
+.polaroid div {
+  width: 100%;
+  height: 100%;
+
+  background:
+    linear-gradient(
+      140deg,
+      rgba(255, 130, 180, 0.12),
+      rgba(255, 255, 255, 0.03)
+    );
+}
+
+.polaroid-one {
+  left: 1%;
+  top: 14%;
+
+  transform: rotate(-14deg);
+}
+
+.polaroid-two {
+  right: 3%;
+  top: 18%;
+
+  transform: rotate(12deg);
+}
+
+.polaroid-three {
+  left: 4%;
+  bottom: 10%;
+
+  transform: rotate(10deg);
+}
+
+.polaroid-four {
+  right: 5%;
+  bottom: 6%;
+
+  transform: rotate(-12deg);
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.memory-header {
+  position: relative;
+
+  z-index: 10;
+
+  width: 100%;
+  max-width: 900px;
+
+  margin:
+    0 auto 34px;
+
+  text-align: center;
+}
+
+.memory-book-icon {
+  margin-bottom: 4px;
+
+  font-size: 40px;
+
+  filter:
+    drop-shadow(
+      0 0 15px
+      rgba(255, 100, 190, 0.3)
+    );
+}
+
+.memory-eyebrow {
+  margin: 0;
+
+  font-size: 14px;
+
+  letter-spacing: 0.45em;
+
+  color: #f29bc7;
+}
+
+.memory-header h1 {
+  margin:
+    8px 0 12px;
+
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  font-size:
+    clamp(
+      40px,
+      7vw,
+      82px
+    );
+
+  font-style: italic;
+
+  line-height: 1;
+
+  color: #ffd5e9;
+
+  text-shadow:
+    0 0 20px
+    rgba(255, 80, 170, 0.2);
+}
+
+.memory-header h1 span {
+  color: #ff6cad;
+
+  font-style: normal;
+}
+
+.memory-subtitle {
+  margin: 0;
+
+  font-size: 17px;
+
+  line-height: 1.6;
+
+  color:
+    rgba(255, 255, 255, 0.85);
+}
+
+
+/* =========================================================
+   BOOK WRAPPER
+========================================================= */
+
+.memory-book-wrapper {
+  position: relative;
+
+  z-index: 10;
+
+  width: 100%;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+}
+
+
+/* =========================================================
+   BOOK
+========================================================= */
+
+.memory-book {
+  position: relative;
+
+  width:
+    min(
+      1120px,
+      88vw
+    );
+
+  aspect-ratio:
+    1.8 / 1;
+
+  padding: 16px;
+
+  box-sizing: border-box;
+
+  border-radius: 24px;
+
+  background:
+    linear-gradient(
+      145deg,
+      #4b241e,
+      #26120f 40%,
+      #4c211a
+    );
+
+  border:
+    1px solid
+    rgba(255, 190, 150, 0.18);
+
+  box-shadow:
+    0 35px 80px
+    rgba(0, 0, 0, 0.55),
+
+    0 0 35px
+    rgba(255, 60, 150, 0.08);
+
+  perspective: 1600px;
+}
+
+
+/* =========================================================
+   BOOK INNER
+========================================================= */
+
+.book-inner {
+  position: relative;
+
+  width: 100%;
+  height: 100%;
+
+  overflow: hidden;
+
+  border-radius: 16px;
+
+  transform-style:
+    preserve-3d;
+}
+
+
+/* =========================================================
+   MEMORY SPREAD
+========================================================= */
+
+.memory-spread {
+  position: absolute;
+
+  inset: 0;
+
+  display: grid;
+
+  grid-template-columns:
+    1fr 1fr;
+
+  width: 100%;
+  height: 100%;
+
+  overflow: hidden;
+
+  transform-style:
+    preserve-3d;
+
+  backface-visibility:
+    hidden;
+
+  will-change:
+    transform,
+    opacity;
+}
+
+
+/* =========================================================
+   MEMORY PAGE
+========================================================= */
+
+.memory-page {
+  position: relative;
+
+  min-width: 0;
+
+  overflow-x: hidden;
+  overflow-y: auto;
+
+  padding:
+    clamp(
+      20px,
+      3vw,
+      36px
+    );
+
+  box-sizing: border-box;
+
+  scrollbar-width: thin;
+
+  scrollbar-color:
+    rgba(190, 96, 140, 0.4)
+    transparent;
+
+  background:
+    linear-gradient(
+      135deg,
+      #f0dfc5 0%,
+      #e8ceb1 100%
+    );
+
+  color:
+    #4f3029;
+
+  box-shadow:
+    inset 0 0 25px
+    rgba(80, 35, 15, 0.12);
+
+  -webkit-overflow-scrolling:
+    touch;
+}
+
+.memory-page::-webkit-scrollbar {
+  width: 5px;
+}
+
+.memory-page::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.memory-page::-webkit-scrollbar-thumb {
+  background:
+    rgba(190, 96, 140, 0.4);
+
+  border-radius:
+    999px;
+}
+
+.memory-page::-webkit-scrollbar-thumb:hover {
+  background:
+    rgba(190, 96, 140, 0.65);
+}
+
+.page-left {
+  border-right:
+    1px solid
+    rgba(77, 39, 25, 0.22);
+}
+
+.page-right {
+  border-left:
+    1px solid
+    rgba(255, 255, 255, 0.35);
+}
+
+
+/* =========================================================
+   PAPER TEXTURE
+========================================================= */
+
+.paper-texture {
+  position: absolute;
+
+  inset: 0;
+
+  pointer-events: none;
+
+  opacity: 0.28;
+
+  background:
+    radial-gradient(
+      circle at 20% 20%,
+      rgba(120, 70, 30, 0.08),
+      transparent 20%
+    ),
+    radial-gradient(
+      circle at 80% 75%,
+      rgba(120, 70, 30, 0.07),
+      transparent 18%
+    );
+}
+
+
+/* =========================================================
+   TAPE
+========================================================= */
+
+.tape {
+  position: absolute;
+
+  width: 90px;
+  height: 28px;
+
+  background:
+    rgba(235, 171, 181, 0.72);
+
+  transform:
+    rotate(-4deg);
+
+  box-shadow:
+    0 2px 5px
+    rgba(0, 0, 0, 0.1);
+
+  z-index: 5;
+
+  pointer-events: none;
+}
+
+.tape-top {
+  left: 50%;
+  top: 12px;
+
+  transform:
+    translateX(-50%)
+    rotate(-4deg);
+}
+
+
+/* =========================================================
+   MEDIA
+========================================================= */
+
+.memory-media {
+  position: relative;
+
+  width: 100%;
+
+  margin-top: 20px;
+
+  padding: 8px;
+
+  box-sizing: border-box;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  overflow: hidden;
+
+  border: 0;
+  outline: 0;
+
+  background:
+    #fffdf8;
+
+  box-shadow:
+    0 10px 20px
+    rgba(0, 0, 0, 0.15);
+
+  cursor: pointer;
+
+  transform:
+    rotate(-1.5deg);
+
+  transition:
+    transform 0.35s
+    cubic-bezier(0.22, 1, 0.36, 1),
+
+    box-shadow 0.35s ease;
+}
+
+.page-right .memory-media {
+  transform:
+    rotate(1.5deg);
+}
+
+
+/* =========================================================
+   MEDIA HOVER
+========================================================= */
+
+.memory-media:hover {
+  transform:
+    rotate(-1.5deg)
+    scale(1.045);
+
+  box-shadow:
+    0 18px 35px
+    rgba(0, 0, 0, 0.26);
+}
+
+.page-right .memory-media:hover {
+  transform:
+    rotate(1.5deg)
+    scale(1.045);
+}
+
+
+/* =========================================================
+   IMAGE
+========================================================= */
+
+.memory-media img {
+  display: block;
+
+  width: auto;
+  height: auto;
+
+  max-width: 100%;
+  max-height: 420px;
+
+  object-fit:
+    contain;
+
+  background:
+    transparent;
+
+  flex-shrink: 0;
+
+  user-select: none;
+
+  pointer-events: none;
+}
+
+
+/* =========================================================
+   VIDEO
+========================================================= */
+
+.memory-media video {
+  display: block;
+
+  width: auto;
+  height: auto;
+
+  max-width: 100%;
+  max-height: 420px;
+
+  object-fit:
+    contain;
+
+  background:
+    #000;
+
+  border-radius:
+    2px;
+
+  flex-shrink: 0;
+
+  pointer-events:
+    auto;
+
+  cursor:
+    pointer;
+}
+
+
+/* =========================================================
+   EMPTY MEDIA
+========================================================= */
+
+.memory-media-empty {
+  width: 100%;
+
+  min-height: 220px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  background:
+    #111;
+
+  color:
+    rgba(255, 255, 255, 0.55);
+
+  font-size: 14px;
+
+  text-align: center;
+}
+
+
+/* =========================================================
+   MEMORY TAG
+========================================================= */
+
+.memory-tag {
+  display: inline-block;
+
+  margin-top: 18px;
+
+  padding:
+    7px 18px;
+
+  background:
+    #c9798b;
+
+  color:
+    #fff6f0;
+
+  font-size: 14px;
+
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  transform:
+    rotate(-2deg);
+
+  box-shadow:
+    0 4px 8px
+    rgba(100, 40, 50, 0.16);
+}
+
+.page-right .memory-tag {
+  transform:
+    rotate(2deg);
+}
+
+
+/* =========================================================
+   MEMORY NOTE
+========================================================= */
+
+.memory-note {
+  position: relative;
+
+  margin-top: 12px;
+
+  max-width: 95%;
+
+  min-height: 80px;
+
+  padding:
+    14px 16px;
+
+  box-sizing: border-box;
+
+  background:
+    rgba(255, 248, 231, 0.7);
+
+  border:
+    1px solid
+    rgba(120, 70, 45, 0.12);
+
+  box-shadow:
+    0 6px 12px
+    rgba(70, 30, 15, 0.07);
+}
+
+.memory-note p {
+  margin: 0;
+
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  font-size:
+    clamp(
+      13px,
+      1.3vw,
+      17px
+    );
+
+  line-height:
+    1.7;
+
+  color:
+    #68473e;
+}
+
+.memory-note span {
+  display: block;
+
+  margin-top: 8px;
+
+  text-align: center;
+
+  color:
+    #b95e78;
+
+  font-size: 24px;
+}
+
+
+/* =========================================================
+   PAGE DECORATION
+========================================================= */
+
+.paper-flower {
+  position: absolute;
+
+  right: 15px;
+  bottom: 12px;
+
+  font-size: 44px;
+
+  color:
+    rgba(190, 92, 114, 0.7);
+
+  transform:
+    rotate(-12deg);
+
+  pointer-events: none;
+}
+
+.paper-tape-small {
+  position: absolute;
+
+  right: 42px;
+  top: 110px;
+
+  width: 42px;
+  height: 14px;
+
+  background:
+    rgba(230, 180, 155, 0.55);
+
+  transform:
+    rotate(14deg);
+
+  pointer-events: none;
+}
+
+
+/* =========================================================
+   BOOK SPINE
+========================================================= */
+
+.book-spine {
+  position: absolute;
+
+  left: 50%;
+  top: 0;
+  bottom: 0;
+
+  width: 16px;
+
+  transform:
+    translateX(-50%);
+
+  z-index: 20;
+
+  display: flex;
+
+  flex-direction: column;
+
+  justify-content:
+    space-around;
+
+  align-items:
+    center;
+
+  padding:
+    20px 0;
+
+  pointer-events: none;
+}
+
+.book-spine span {
+  width: 34px;
+  height: 11px;
+
+  border-radius:
+    999px;
+
+  background:
+    linear-gradient(
+      180deg,
+      #2c211d,
+      #080606
+    );
+
+  box-shadow:
+    0 3px 5px
+    rgba(0, 0, 0, 0.35);
+}
+
+
+/* =========================================================
+   BOOK ARROWS
+========================================================= */
+
+.book-arrow {
+  position: absolute;
+
+  top: 50%;
+
+  width: 58px;
+  height: 58px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  transform:
+    translateY(-50%);
+
+  border-radius:
+    50%;
+
+  border:
+    1px solid
+    rgba(255, 120, 190, 0.5);
+
+  background:
+    rgba(13, 5, 13, 0.88);
+
+  color:
+    #ffb8da;
+
+  box-shadow:
+    0 0 20px
+    rgba(255, 70, 160, 0.15);
+
+  backdrop-filter:
+    blur(12px);
+
+  z-index: 50;
+
+  cursor: pointer;
+
+  transition:
+    transform 0.25s ease,
+    background 0.25s ease,
+    box-shadow 0.25s ease,
+    opacity 0.25s ease;
+}
+
+.book-arrow span {
+  display: block;
+
+  margin-top: -4px;
+
+  font-size: 42px;
+
+  font-family:
+    Arial,
+    sans-serif;
+
+  font-weight: 300;
+
+  line-height: 1;
+}
+
+.book-arrow:hover:not(:disabled) {
+  background:
+    rgba(255, 50, 150, 0.18);
+
+  box-shadow:
+    0 0 30px
+    rgba(255, 60, 165, 0.35);
+
+  transform:
+    translateY(-50%)
+    scale(1.08);
+}
+
+.book-arrow:active:not(:disabled) {
+  transform:
+    translateY(-50%)
+    scale(0.94);
+}
+
+.book-arrow:disabled {
+  opacity: 0.18;
+
+  cursor: default;
+
+  box-shadow: none;
+}
+
+.book-arrow-left {
+  left:
+    max(
+      16px,
+      calc(
+        50%
+        - min(560px, 44vw)
+        - 74px
+      )
+    );
+}
+
+.book-arrow-right {
+  right:
+    max(
+      16px,
+      calc(
+        50%
+        - min(560px, 44vw)
+        - 74px
+      )
+    );
+}
+
+
+/* =========================================================
+   PAGINATION
+========================================================= */
+
+.memory-pagination {
+  position: relative;
+
+  z-index: 20;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  gap: 16px;
+
+  margin-top: 22px;
+
+  color:
+    rgba(255, 255, 255, 0.55);
+}
+
+.pagination-hearts {
+  display: flex;
+
+  gap: 5px;
+}
+
+.pagination-hearts button {
+  border: none;
+
+  background:
+    transparent;
+
+  color:
+    rgba(255, 120, 180, 0.25);
+
+  cursor: pointer;
+
+  font-size: 14px;
+
+  transition:
+    transform 0.2s ease,
+    color 0.2s ease;
+}
+
+.pagination-hearts button.active {
+  color:
+    #ff65ad;
+
+  transform:
+    scale(1.35);
+}
+
+
+/* =========================================================
+   MOBILE STAGE
+========================================================= */
+
+.desktop-book-stage {
+  display: block;
+
+  width: 100%;
+  height: 100%;
+}
+
+.mobile-book-stage {
+  display: none;
+}
+
+.mobile-book-arrow {
+  display: none;
+}
+
+.memory-mobile-pagination {
+  display: none;
+}
+
+
+/* =========================================================
+   BOTTOM
+========================================================= */
+
+.memory-bottom {
+  position: relative;
+
+  z-index: 20;
+
+  width: 100%;
+  max-width: 650px;
+
+  margin:
+    25px auto 0;
+
+  text-align: center;
+}
+
+.memory-bottom p {
+  margin: 0;
+
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  font-size: 16px;
+
+  line-height: 1.8;
+
+  color:
+    rgba(255, 235, 244, 0.75);
+}
+
+.memory-bottom p span {
+  margin-left: 4px;
+
+  color:
+    #ff74b5;
+}
+
+.bottom-hearts {
+  margin-top: 8px;
+
+  letter-spacing: 7px;
+
+  color:
+    #d84e91;
+
+  font-size: 12px;
+}
+
+.memory-next-button {
+  margin-top: 20px;
+
+  padding:
+    13px 32px;
+
+  border-radius:
+    999px;
+
+  border:
+    1px solid
+    rgba(255, 120, 190, 0.35);
+
+  background:
+    linear-gradient(
+      90deg,
+      #f0388d,
+      #ef155c
+    );
+
+  color:
+    #ffffff;
+
+  font-size: 15px;
+
+  font-weight: 600;
+
+  cursor: pointer;
+
+  box-shadow:
+    0 10px 25px
+    rgba(240, 35, 120, 0.22);
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.memory-next-button:hover {
+  transform:
+    translateY(-3px)
+    scale(1.03);
+
+  box-shadow:
+    0 15px 30px
+    rgba(240, 35, 120, 0.32);
+}
+
+
+/* =========================================================
+   IMAGE LIGHTBOX
+========================================================= */
+
+.memory-image-lightbox {
+  position: fixed;
+
+  inset: 0;
+
+  z-index: 999999;
+
+  width: 100vw;
+  height: 100dvh;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  padding: 20px;
+
+  box-sizing: border-box;
+
+  background:
+    rgba(0, 0, 0, 0.96);
+
+  backdrop-filter:
+    blur(10px);
+
+  overflow: hidden;
+
+  cursor: zoom-out;
+}
+
+.memory-full-image {
+  display: block;
+
+  width: auto;
+  height: auto;
+
+  max-width:
+    calc(100vw - 40px);
+
+  max-height:
+    calc(100dvh - 40px);
+
+  object-fit:
+    contain;
+
+  border: none;
+
+  border-radius: 4px;
+
+  box-shadow:
+    0 25px 80px
+    rgba(0, 0, 0, 0.65);
+
+  cursor: default;
+
+  user-select: none;
+}
+
+.memory-image-close {
+  position: fixed;
+
+  top: 20px;
+  right: 20px;
+
+  z-index: 1000000;
+
+  width: 50px;
+  height: 50px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  padding: 0;
+
+  border:
+    1px solid
+    rgba(255, 255, 255, 0.3);
+
+  border-radius:
+    50%;
+
+  background:
+    rgba(15, 10, 15, 0.78);
+
+  color:
+    #ffffff;
+
+  font-size: 32px;
+
+  line-height: 1;
+
+  cursor: pointer;
+
+  backdrop-filter:
+    blur(10px);
+
+  transition:
+    transform 0.2s ease,
+    background 0.2s ease;
+}
+
+.memory-image-close:hover {
+  transform:
+    scale(1.08);
+
+  background:
+    rgba(255, 50, 150, 0.25);
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 1000px) {
+
+  .memory-book {
+    width:
+      min(
+        92vw,
+        900px
+      );
+  }
+
+  .book-arrow-left {
+    left: 6px;
+  }
+
+  .book-arrow-right {
+    right: 6px;
+  }
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 800px) {
+
+  /* -----------------------------------------------
+     SCREEN
+  ------------------------------------------------ */
+
+  .memory-book-screen {
+    padding:
+      24px 10px 35px;
+  }
+
+
+  /* -----------------------------------------------
+     HEADER
+  ------------------------------------------------ */
+
+  .memory-book-icon {
+    font-size: 30px;
+  }
+
+  .memory-eyebrow {
+    font-size: 10px;
+
+    letter-spacing:
+      0.3em;
+  }
+
+  .memory-header h1 {
+    font-size: 42px;
+
+    margin:
+      6px 0 9px;
+  }
+
+  .memory-subtitle {
+    font-size: 13px;
+
+    line-height: 1.45;
+  }
+
+
+  /* -----------------------------------------------
+     BOOK
+  ------------------------------------------------ */
+
+  .memory-book-wrapper {
+    padding:
+      0 30px;
+  }
+
+  .memory-book {
+    width: 100%;
+
+    /*
+      Satu halaman saja di HP.
+      Tidak memanjang ke bawah.
+    */
+
+    height:
+      min(72vh, 600px);
+
+    min-height:
+      480px;
+
+    max-height:
+      600px;
+
+    aspect-ratio:
+      auto;
+
+    padding: 7px;
+  }
+
+
+  .book-inner {
+    width: 100%;
+    height: 100%;
+
+    min-height: 0;
+
+    overflow: hidden;
+  }
+
+
+  /* -----------------------------------------------
+     DESKTOP OFF
+  ------------------------------------------------ */
+
+  .desktop-book-stage {
+    display: none;
+  }
+
+
+  /* -----------------------------------------------
+     MOBILE STAGE
+  ------------------------------------------------ */
+
+  .mobile-book-stage {
+    position: absolute;
+
+    inset: 0;
+
+    display: block;
+
+    width: 100%;
+    height: 100%;
+
+    overflow: hidden;
+
+    border-radius:
+      12px;
+  }
+
+
+  .mobile-page-wrapper {
+    position: absolute;
+
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+  }
+
+
+  .mobile-page-wrapper .memory-page {
+    width: 100%;
+    height: 100%;
+
+    min-height: 0;
+
+    padding:
+      8px 10px 14px;
+
+    overflow-x: hidden;
+
+    overflow-y: auto;
+
+    box-sizing: border-box;
+  }
+
+
+  /* -----------------------------------------------
+     MEDIA LEBIH BESAR
+  ------------------------------------------------ */
+
+  .mobile-page-wrapper .memory-media {
+    width: 100%;
+
+    margin-top:
+      5px;
+
+    padding:
+      4px;
+  }
+
+
+  .mobile-page-wrapper
+  .memory-media img,
+  .mobile-page-wrapper
+  .memory-media video {
+
+    width: auto;
+    height: auto;
+
+    max-width:
+      100%;
+
+    /*
+      Tambah tinggi media agar
+      lebih dominan.
+    */
+
+    max-height:
+      54vh;
+
+    object-fit:
+      contain;
+  }
+
+
+  /* -----------------------------------------------
+     TAG SUPER KECIL
+  ------------------------------------------------ */
+
+  .mobile-page-wrapper .memory-tag {
+    display: inline-block;
+
+    margin-top:
+      5px;
+
+    padding:
+      3px 8px;
+
+    font-size:
+      10px;
+
+    line-height:
+      1.15;
+
+    transform:
+      rotate(-1deg);
+  }
+
+
+  .mobile-page-wrapper
+  .page-right .memory-tag {
+    transform:
+      rotate(1deg);
+  }
+
+
+  /* -----------------------------------------------
+     CAPTION SUPER KECIL
+  ------------------------------------------------ */
+
+  .mobile-page-wrapper .memory-note {
+    width: 100%;
+
+    max-width: 100%;
+
+    min-height: 36px;
+
+    margin-top:
+      5px;
+
+    padding:
+      5px 8px;
+
+    box-sizing: border-box;
+  }
+
+
+  .mobile-page-wrapper .memory-note p {
+    margin: 0;
+
+    font-size:
+      10px;
+
+    line-height:
+      1.25;
+
+    text-align:
+      left;
+  }
+
+
+  .mobile-page-wrapper .memory-note span {
+    margin-top:
+      1px;
+
+    font-size:
+      15px;
+  }
+
+
+  /* -----------------------------------------------
+     DECORATIONS
+  ------------------------------------------------ */
+
+  .mobile-page-wrapper .paper-flower {
+    right: 7px;
+    bottom: 6px;
+
+    font-size:
+      20px;
+  }
+
+  .mobile-page-wrapper .paper-tape-small {
+    right: 22px;
+    top: 60px;
+
+    width: 28px;
+    height: 8px;
+  }
+
+
+  /* -----------------------------------------------
+     SPINE
+  ------------------------------------------------ */
+
+  .mobile-book-stage .book-spine {
+    display: none;
+  }
+
+
+  /* -----------------------------------------------
+     DESKTOP ARROW OFF
+  ------------------------------------------------ */
+
+  .desktop-book-arrow {
+    display: none;
+  }
+
+
+  /* -----------------------------------------------
+     MOBILE ARROW
+  ------------------------------------------------ */
+
+  .mobile-book-arrow {
+    display: flex !important;
+
+    z-index: 200;
+
+    width:
+      42px;
+
+    height:
+      42px;
+  }
+
+  .mobile-book-arrow.book-arrow-left {
+    left:
+      -2px;
+  }
+
+  .mobile-book-arrow.book-arrow-right {
+    right:
+      -2px;
+  }
+
+
+  /* -----------------------------------------------
+     DESKTOP PAGINATION OFF
+  ------------------------------------------------ */
+
+  .desktop-pagination {
+    display: none;
+  }
+
+
+  /* -----------------------------------------------
+     MOBILE PAGINATION
+  ------------------------------------------------ */
+
+  .memory-mobile-pagination {
+    position: relative;
+
+    z-index: 30;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 5px;
+
+    margin-top:
+      8px;
+
+    font-size:
+      12px;
+
+    color:
+      rgba(255, 255, 255, 0.65);
+  }
+
+  .memory-mobile-pagination span:first-child {
+    color:
+      #ff72b7;
+
+    font-weight:
+      700;
+  }
+
+
+  /* -----------------------------------------------
+     BOTTOM
+  ------------------------------------------------ */
+
+  .memory-bottom {
+    margin-top:
+      9px;
+  }
+
+  .memory-bottom p {
+    font-size:
+      10px;
+  }
+
+  .bottom-hearts {
+    margin-top:
+      2px;
+
+    font-size:
+      8px;
+
+    letter-spacing:
+      3px;
+  }
+
+  .memory-next-button {
+    margin-top:
+      7px;
+
+    padding:
+      8px 18px;
+
+    font-size:
+      11px;
+  }
+
+
+  /* -----------------------------------------------
+     IMAGE LIGHTBOX
+  ------------------------------------------------ */
+
+  .memory-image-lightbox {
+    width:
+      100vw;
+
+    height:
+      100dvh;
+
+    padding:
+      0;
+  }
+
+  .memory-full-image {
+    width:
+      auto;
+
+    height:
+      auto;
+
+    max-width:
+      100vw;
+
+    max-height:
+      100dvh;
+
+    object-fit:
+      contain;
+
+    border-radius:
+      0;
+  }
+
+  .memory-image-close {
+    top:
+      12px;
+
+    right:
+      12px;
+
+    width:
+      44px;
+
+    height:
+      44px;
+
+    font-size:
+      27px;
+  }
+}
+
+
+/* =========================================================
+   SMALL PHONE
+========================================================= */
+
+@media (max-width: 480px) {
+
+  .memory-book-screen {
+    padding:
+      20px 8px 28px;
+  }
+
+
+  .memory-header h1 {
+    font-size:
+      36px;
+  }
+
+
+  .memory-book-wrapper {
+    padding:
+      0 28px;
+  }
+
+
+  .memory-book {
+    height:
+      min(70vh, 520px);
+
+    min-height:
+      430px;
+
+    max-height:
+      520px;
+  }
+
+
+  .mobile-page-wrapper .memory-page {
+    padding:
+      7px 8px 12px;
+  }
+
+
+  /* MEDIA EXTRA BESAR */
+
+  .mobile-page-wrapper
+  .memory-media img,
+  .mobile-page-wrapper
+  .memory-media video {
+
+    max-height:
+      52vh;
+  }
+
+
+  /* TAG */
+
+  .mobile-page-wrapper .memory-tag {
+    margin-top:
+      4px;
+
+    padding:
+      2px 7px;
+
+    font-size:
+      9px;
+  }
+
+
+  /* CAPTION */
+
+  .mobile-page-wrapper .memory-note {
+    min-height:
+      32px;
+
+    margin-top:
+      4px;
+
+    padding:
+      4px 7px;
+  }
+
+  .mobile-page-wrapper .memory-note p {
+    font-size:
+      9px;
+
+    line-height:
+      1.2;
+  }
+
+  .mobile-page-wrapper .memory-note span {
+    font-size:
+      13px;
+  }
+
+
+  /* ARROW */
+
+  .mobile-book-arrow {
+    width:
+      38px;
+
+    height:
+      38px;
+  }
+
+  .book-arrow span {
+    font-size:
+      27px;
+  }
+
+
+  /* BOTTOM */
+
+  .memory-bottom {
+    margin-top:
+      7px;
+  }
+
+  .memory-next-button {
+    padding:
+      7px 16px;
+
+    font-size:
+      10px;
+  }
+}

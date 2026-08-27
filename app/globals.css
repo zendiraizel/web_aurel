@@ -24,3 +24,420 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+/* ========================================
+   ROMANTIC CINEMATIC BACKGROUND
+======================================== */
+
+.birthday-background {
+  position: relative;
+  min-height: 100vh;
+  overflow: hidden;
+  background:
+    radial-gradient(
+      circle at 50% 35%,
+      rgba(190, 24, 93, 0.35),
+      transparent 35%
+    ),
+    radial-gradient(
+      circle at 15% 80%,
+      rgba(236, 72, 153, 0.16),
+      transparent 30%
+    ),
+    radial-gradient(
+      circle at 85% 20%,
+      rgba(244, 63, 94, 0.15),
+      transparent 30%
+    ),
+    linear-gradient(
+      135deg,
+      #08030a 0%,
+      #160510 35%,
+      #250614 65%,
+      #050205 100%
+    );
+}
+
+/* Vignette */
+.birthday-background::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 5;
+  background:
+    radial-gradient(
+      ellipse at center,
+      transparent 35%,
+      rgba(0, 0, 0, 0.35) 75%,
+      rgba(0, 0, 0, 0.75) 100%
+    );
+}
+
+/* Soft glow */
+.birthday-background::after {
+  content: "";
+  position: absolute;
+  width: 600px;
+  height: 600px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  border-radius: 50%;
+  background: rgba(236, 72, 153, 0.08);
+  filter: blur(100px);
+  animation: romanticGlow 6s ease-in-out infinite;
+}
+
+@keyframes romanticGlow {
+  0%,
+  100% {
+    transform: translate(-50%, -50%) scale(0.9);
+    opacity: 0.5;
+  }
+
+  50% {
+    transform: translate(-50%, -50%) scale(1.2);
+    opacity: 1;
+  }
+}
+
+/* Star particles */
+
+.stars {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.star {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  border-radius: 50%;
+  background: white;
+  box-shadow:
+    0 0 5px rgba(255, 255, 255, 0.9),
+    0 0 10px rgba(244, 114, 182, 0.6);
+  animation: twinkle 3s ease-in-out infinite;
+}
+
+@keyframes twinkle {
+  0%,
+  100% {
+    opacity: 0.15;
+    transform: scale(0.7);
+  }
+
+  50% {
+    opacity: 1;
+    transform: scale(1.4);
+  }
+}
+
+/* Floating heart */
+.background-heart {
+  position: absolute;
+  pointer-events: none;
+  color: rgba(244, 63, 94, 0.45);
+  filter: blur(0.2px);
+  animation: floatHeart 8s ease-in-out infinite;
+}
+
+@keyframes floatHeart {
+  0% {
+    transform: translateY(110vh) scale(0.5) rotate(0deg);
+    opacity: 0;
+  }
+
+  10% {
+    opacity: 0.6;
+  }
+
+  50% {
+    transform: translateY(50vh) scale(1) rotate(10deg);
+  }
+
+  90% {
+    opacity: 0.4;
+  }
+
+  100% {
+    transform: translateY(-20vh) scale(0.7) rotate(-10deg);
+    opacity: 0;
+  }
+}
+
+/* Mobile */
+@media (max-width: 640px) {
+  .birthday-background::after {
+    width: 350px;
+    height: 350px;
+  }
+
+  .star {
+    width: 1.5px;
+    height: 1.5px;
+  }
+}
+/* =========================================================
+   FIREWORK CURSOR
+========================================================= */
+
+.firework-particle {
+  position: fixed;
+
+  border-radius: 999px;
+
+  pointer-events: none;
+
+  transform: translate(-50%, -50%);
+
+  animation: firework-particle 650ms ease-out forwards;
+}
+
+@keyframes firework-particle {
+  0% {
+    opacity: 1;
+
+    transform:
+      translate(-50%, -50%)
+      scale(1);
+  }
+
+  60% {
+    opacity: 0.8;
+  }
+
+  100% {
+    opacity: 0;
+
+    transform:
+      translate(
+        calc(-50% + var(--tx)),
+        calc(-50% + var(--ty))
+      )
+      scale(0);
+  }
+}
+/* =========================================================
+   FIREWORK CLICK BLAST
+========================================================= */
+
+.firework-burst {
+  position: fixed;
+
+  width: 1px;
+  height: 1px;
+
+  pointer-events: none;
+
+  transform:
+    translate(-50%, -50%);
+}
+
+
+/* =========================================================
+   CORE
+========================================================= */
+
+.firework-core {
+  position: absolute;
+
+  left: 0;
+  top: 0;
+
+  width: 9px;
+  height: 9px;
+
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      circle,
+      #ffffff 0%,
+      #ffe5f3 30%,
+      #ff4fa3 65%,
+      transparent 100%
+    );
+
+  box-shadow:
+    0 0 10px #ffffff,
+    0 0 22px #ff4fa3,
+    0 0 45px rgba(255, 79, 163, .75);
+
+  transform:
+    translate(-50%, -50%)
+    scale(0);
+
+  animation:
+    firework-core-blast
+    450ms
+    cubic-bezier(.2,.8,.2,1)
+    forwards;
+}
+
+@keyframes firework-core-blast {
+
+  0% {
+    opacity: 1;
+
+    transform:
+      translate(-50%, -50%)
+      scale(0);
+  }
+
+  25% {
+    opacity: 1;
+
+    transform:
+      translate(-50%, -50%)
+      scale(2);
+  }
+
+  100% {
+    opacity: 0;
+
+    transform:
+      translate(-50%, -50%)
+      scale(.2);
+  }
+}
+
+
+/* =========================================================
+   PARTICLES
+========================================================= */
+
+.firework-spark {
+  position: absolute;
+
+  left: 0;
+  top: 0;
+
+  width: 5px;
+  height: 5px;
+
+  border-radius: 50%;
+
+  background:
+    #ff8bc4;
+
+  box-shadow:
+    0 0 6px #ff8bc4,
+    0 0 15px rgba(255, 79, 163, .85);
+
+  opacity: 0;
+
+  transform:
+    translate(-50%, -50%)
+    translate(0, 0)
+    scale(.2);
+
+  animation:
+    firework-spark-blast
+    700ms
+    var(--delay)
+    cubic-bezier(.15,.8,.2,1)
+    forwards;
+}
+
+@keyframes firework-spark-blast {
+
+  0% {
+    opacity: 0;
+
+    transform:
+      translate(-50%, -50%)
+      translate(0, 0)
+      scale(.2);
+  }
+
+  15% {
+    opacity: 1;
+
+    transform:
+      translate(-50%, -50%)
+      translate(0, 0)
+      scale(1.2);
+  }
+
+  65% {
+    opacity: 1;
+
+    transform:
+      translate(-50%, -50%)
+      translate(var(--x), var(--y))
+      scale(1);
+  }
+
+  100% {
+    opacity: 0;
+
+    transform:
+      translate(-50%, -50%)
+      translate(
+        calc(var(--x) * 1.25),
+        calc(var(--y) * 1.25)
+      )
+      scale(.1);
+  }
+}
+
+
+/* =========================================================
+   RING
+========================================================= */
+
+.firework-ring {
+  position: absolute;
+
+  left: 0;
+  top: 0;
+
+  width: 22px;
+  height: 22px;
+
+  border:
+    2px solid
+    rgba(255, 130, 195, .85);
+
+  border-radius: 50%;
+
+  opacity: 0;
+
+  transform:
+    translate(-50%, -50%)
+    scale(.1);
+
+  animation:
+    firework-ring-blast
+    650ms
+    ease-out
+    forwards;
+}
+
+@keyframes firework-ring-blast {
+
+  0% {
+    opacity: .95;
+
+    transform:
+      translate(-50%, -50%)
+      scale(.1);
+  }
+
+  60% {
+    opacity: .4;
+  }
+
+  100% {
+    opacity: 0;
+
+    transform:
+      translate(-50%, -50%)
+      scale(6);
+  }
+}
