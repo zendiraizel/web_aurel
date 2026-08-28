@@ -4,6 +4,7 @@
 
 .memory-book-screen {
   position: relative;
+
   width: 100%;
   min-height: 100dvh;
 
@@ -104,41 +105,52 @@
 .memory-hearts span:nth-child(1) {
   left: 6%;
   top: 15%;
+
   font-size: 25px;
 }
 
 .memory-hearts span:nth-child(2) {
   left: 17%;
   top: 70%;
+
   font-size: 16px;
+
   animation-delay: 1s;
 }
 
 .memory-hearts span:nth-child(3) {
   right: 8%;
   top: 22%;
+
   font-size: 31px;
+
   animation-delay: 2s;
 }
 
 .memory-hearts span:nth-child(4) {
   right: 15%;
   top: 65%;
+
   font-size: 19px;
+
   animation-delay: 3s;
 }
 
 .memory-hearts span:nth-child(5) {
   left: 40%;
   top: 10%;
+
   font-size: 17px;
+
   animation-delay: 4s;
 }
 
 .memory-hearts span:nth-child(6) {
   right: 42%;
   top: 73%;
+
   font-size: 14px;
+
   animation-delay: 5s;
 }
 
@@ -472,9 +484,13 @@
     inset 0 0 25px
     rgba(80, 35, 15, 0.12);
 
-  -webkit-overflow-scrolling:
-    touch;
+  -webkit-overflow-scrolling: touch;
 }
+
+
+/* =========================================================
+   PAGE SCROLLBAR
+========================================================= */
 
 .memory-page::-webkit-scrollbar {
   width: 5px;
@@ -574,12 +590,16 @@
 
 /* =========================================================
    MEDIA
+   DESKTOP 4:3 COVER
 ========================================================= */
 
 .memory-media {
   position: relative;
 
   width: 100%;
+
+  aspect-ratio:
+    4 / 3;
 
   margin-top: 20px;
 
@@ -629,7 +649,7 @@
 .memory-media:hover {
   transform:
     rotate(-1.5deg)
-    scale(1.045);
+    scale(1.035);
 
   box-shadow:
     0 18px 35px
@@ -639,7 +659,7 @@
 .page-right .memory-media:hover {
   transform:
     rotate(1.5deg)
-    scale(1.045);
+    scale(1.035);
 }
 
 
@@ -650,14 +670,17 @@
 .memory-media img {
   display: block;
 
-  width: auto;
-  height: auto;
+  width: 100%;
+  height: 100%;
 
   max-width: 100%;
-  max-height: 420px;
+  max-height: 100%;
 
   object-fit:
     contain;
+
+  object-position:
+    center;
 
   background:
     transparent;
@@ -666,7 +689,8 @@
 
   user-select: none;
 
-  pointer-events: none;
+  pointer-events:
+    none;
 }
 
 
@@ -677,14 +701,17 @@
 .memory-media video {
   display: block;
 
-  width: auto;
-  height: auto;
+  width: 100%;
+  height: 100%;
 
   max-width: 100%;
-  max-height: 420px;
+  max-height: 100%;
 
   object-fit:
     contain;
+
+  object-position:
+    center;
 
   background:
     #000;
@@ -708,8 +735,9 @@
 
 .memory-media-empty {
   width: 100%;
+  height: 100%;
 
-  min-height: 220px;
+  min-height: 160px;
 
   display: flex;
 
@@ -722,9 +750,11 @@
   color:
     rgba(255, 255, 255, 0.55);
 
-  font-size: 14px;
+  font-size:
+    14px;
 
-  text-align: center;
+  text-align:
+    center;
 }
 
 
@@ -746,7 +776,8 @@
   color:
     #fff6f0;
 
-  font-size: 14px;
+  font-size:
+    14px;
 
   font-family:
     Georgia,
@@ -824,12 +855,14 @@
 
   margin-top: 8px;
 
-  text-align: center;
+  text-align:
+    center;
 
   color:
     #b95e78;
 
-  font-size: 24px;
+  font-size:
+    24px;
 }
 
 
@@ -843,7 +876,8 @@
   right: 15px;
   bottom: 12px;
 
-  font-size: 44px;
+  font-size:
+    44px;
 
   color:
     rgba(190, 92, 114, 0.7);
@@ -851,7 +885,8 @@
   transform:
     rotate(-12deg);
 
-  pointer-events: none;
+  pointer-events:
+    none;
 }
 
 .paper-tape-small {
@@ -869,7 +904,8 @@
   transform:
     rotate(14deg);
 
-  pointer-events: none;
+  pointer-events:
+    none;
 }
 
 
@@ -893,7 +929,8 @@
 
   display: flex;
 
-  flex-direction: column;
+  flex-direction:
+    column;
 
   justify-content:
     space-around;
@@ -904,7 +941,8 @@
   padding:
     20px 0;
 
-  pointer-events: none;
+  pointer-events:
+    none;
 }
 
 .book-spine span {
@@ -941,8 +979,11 @@
 
   display: flex;
 
-  align-items: center;
-  justify-content: center;
+  align-items:
+    center;
+
+  justify-content:
+    center;
 
   transform:
     translateY(-50%);
@@ -967,9 +1008,11 @@
   backdrop-filter:
     blur(12px);
 
-  z-index: 50;
+  z-index:
+    50;
 
-  cursor: pointer;
+  cursor:
+    pointer;
 
   transition:
     transform 0.25s ease,
@@ -979,19 +1022,24 @@
 }
 
 .book-arrow span {
-  display: block;
+  display:
+    block;
 
-  margin-top: -4px;
+  margin-top:
+    -4px;
 
-  font-size: 42px;
+  font-size:
+    42px;
 
   font-family:
     Arial,
     sans-serif;
 
-  font-weight: 300;
+  font-weight:
+    300;
 
-  line-height: 1;
+  line-height:
+    1;
 }
 
 .book-arrow:hover:not(:disabled) {
@@ -1014,12 +1062,20 @@
 }
 
 .book-arrow:disabled {
-  opacity: 0.18;
+  opacity:
+    0.18;
 
-  cursor: default;
+  cursor:
+    default;
 
-  box-shadow: none;
+  box-shadow:
+    none;
 }
+
+
+/* =========================================================
+   ARROW POSITION
+========================================================= */
 
 .book-arrow-left {
   left:
@@ -1053,29 +1109,39 @@
 .memory-pagination {
   position: relative;
 
-  z-index: 20;
+  z-index:
+    20;
 
-  display: flex;
+  display:
+    flex;
 
-  align-items: center;
-  justify-content: center;
+  align-items:
+    center;
 
-  gap: 16px;
+  justify-content:
+    center;
 
-  margin-top: 22px;
+  gap:
+    16px;
+
+  margin-top:
+    22px;
 
   color:
     rgba(255, 255, 255, 0.55);
 }
 
 .pagination-hearts {
-  display: flex;
+  display:
+    flex;
 
-  gap: 5px;
+  gap:
+    5px;
 }
 
 .pagination-hearts button {
-  border: none;
+  border:
+    none;
 
   background:
     transparent;
@@ -1083,9 +1149,11 @@
   color:
     rgba(255, 120, 180, 0.25);
 
-  cursor: pointer;
+  cursor:
+    pointer;
 
-  font-size: 14px;
+  font-size:
+    14px;
 
   transition:
     transform 0.2s ease,
@@ -1102,26 +1170,33 @@
 
 
 /* =========================================================
-   MOBILE STAGE
+   STAGES
 ========================================================= */
 
 .desktop-book-stage {
-  display: block;
+  display:
+    block;
 
-  width: 100%;
-  height: 100%;
+  width:
+    100%;
+
+  height:
+    100%;
 }
 
 .mobile-book-stage {
-  display: none;
+  display:
+    none;
 }
 
 .mobile-book-arrow {
-  display: none;
+  display:
+    none;
 }
 
 .memory-mobile-pagination {
-  display: none;
+  display:
+    none;
 }
 
 
@@ -1130,55 +1205,69 @@
 ========================================================= */
 
 .memory-bottom {
-  position: relative;
+  position:
+    relative;
 
-  z-index: 20;
+  z-index:
+    20;
 
-  width: 100%;
-  max-width: 650px;
+  width:
+    100%;
+
+  max-width:
+    650px;
 
   margin:
     25px auto 0;
 
-  text-align: center;
+  text-align:
+    center;
 }
 
 .memory-bottom p {
-  margin: 0;
+  margin:
+    0;
 
   font-family:
     Georgia,
     "Times New Roman",
     serif;
 
-  font-size: 16px;
+  font-size:
+    16px;
 
-  line-height: 1.8;
+  line-height:
+    1.8;
 
   color:
     rgba(255, 235, 244, 0.75);
 }
 
 .memory-bottom p span {
-  margin-left: 4px;
+  margin-left:
+    4px;
 
   color:
     #ff74b5;
 }
 
 .bottom-hearts {
-  margin-top: 8px;
+  margin-top:
+    8px;
 
-  letter-spacing: 7px;
+  letter-spacing:
+    7px;
 
   color:
     #d84e91;
 
-  font-size: 12px;
+  font-size:
+    12px;
 }
 
 .memory-next-button {
-  margin-top: 20px;
+  margin-top:
+    20px;
 
   padding:
     13px 32px;
@@ -1200,11 +1289,14 @@
   color:
     #ffffff;
 
-  font-size: 15px;
+  font-size:
+    15px;
 
-  font-weight: 600;
+  font-weight:
+    600;
 
-  cursor: pointer;
+  cursor:
+    pointer;
 
   box-shadow:
     0 10px 25px
@@ -1227,27 +1319,40 @@
 
 
 /* =========================================================
-   IMAGE LIGHTBOX
+   FULLSCREEN IMAGE
+   FRAME SELALU 9:16
 ========================================================= */
 
 .memory-image-lightbox {
-  position: fixed;
+  position:
+    fixed;
 
-  inset: 0;
+  inset:
+    0;
 
-  z-index: 999999;
+  z-index:
+    999999;
 
-  width: 100vw;
-  height: 100dvh;
+  width:
+    100vw;
 
-  display: flex;
+  height:
+    100dvh;
 
-  align-items: center;
-  justify-content: center;
+  display:
+    flex;
 
-  padding: 20px;
+  align-items:
+    center;
 
-  box-sizing: border-box;
+  justify-content:
+    center;
+
+  padding:
+    20px;
+
+  box-sizing:
+    border-box;
 
   background:
     rgba(0, 0, 0, 0.96);
@@ -1255,56 +1360,105 @@
   backdrop-filter:
     blur(10px);
 
-  overflow: hidden;
+  overflow:
+    hidden;
 
-  cursor: zoom-out;
+  cursor:
+    zoom-out;
 }
 
-.memory-full-image {
-  display: block;
 
-  width: auto;
-  height: auto;
+/* =========================================================
+   FULLSCREEN 9:16 FRAME
+========================================================= */
+
+.memory-full-image {
+  display:
+    block;
+
+  /*
+    FRAME 9:16
+  */
+
+  width:
+    min(
+      88vw,
+      420px
+    );
+
+  aspect-ratio:
+    9 / 16;
+
+  height:
+    auto;
 
   max-width:
-    calc(100vw - 40px);
+    88vw;
 
   max-height:
-    calc(100dvh - 40px);
+    92dvh;
 
   object-fit:
     contain;
 
-  border: none;
+  object-position:
+    center;
 
-  border-radius: 4px;
+  background:
+    #000;
+
+  border:
+    none;
+
+  border-radius:
+    6px;
 
   box-shadow:
     0 25px 80px
     rgba(0, 0, 0, 0.65);
 
-  cursor: default;
+  cursor:
+    default;
 
-  user-select: none;
+  user-select:
+    none;
 }
 
+
+/* =========================================================
+   CLOSE BUTTON
+========================================================= */
+
 .memory-image-close {
-  position: fixed;
+  position:
+    fixed;
 
-  top: 20px;
-  right: 20px;
+  top:
+    20px;
 
-  z-index: 1000000;
+  right:
+    20px;
 
-  width: 50px;
-  height: 50px;
+  z-index:
+    1000000;
 
-  display: flex;
+  width:
+    50px;
 
-  align-items: center;
-  justify-content: center;
+  height:
+    50px;
 
-  padding: 0;
+  display:
+    flex;
+
+  align-items:
+    center;
+
+  justify-content:
+    center;
+
+  padding:
+    0;
 
   border:
     1px solid
@@ -1319,11 +1473,14 @@
   color:
     #ffffff;
 
-  font-size: 32px;
+  font-size:
+    32px;
 
-  line-height: 1;
+  line-height:
+    1;
 
-  cursor: pointer;
+  cursor:
+    pointer;
 
   backdrop-filter:
     blur(10px);
@@ -1357,11 +1514,13 @@
   }
 
   .book-arrow-left {
-    left: 6px;
+    left:
+      6px;
   }
 
   .book-arrow-right {
-    right: 6px;
+    right:
+      6px;
   }
 }
 
@@ -1372,190 +1531,316 @@
 
 @media (max-width: 800px) {
 
-  /* -----------------------------------------------
-     SCREEN
-  ------------------------------------------------ */
-
   .memory-book-screen {
     padding:
-      24px 10px 35px;
+      20px 8px 30px;
   }
 
 
-  /* -----------------------------------------------
-     HEADER
-  ------------------------------------------------ */
+  /* HEADER */
 
   .memory-book-icon {
-    font-size: 30px;
+    font-size:
+      30px;
   }
 
   .memory-eyebrow {
-    font-size: 10px;
+    font-size:
+      10px;
 
     letter-spacing:
       0.3em;
   }
 
   .memory-header h1 {
-    font-size: 42px;
+    font-size:
+      42px;
 
     margin:
       6px 0 9px;
   }
 
   .memory-subtitle {
-    font-size: 13px;
+    font-size:
+      13px;
 
-    line-height: 1.45;
+    line-height:
+      1.45;
   }
 
 
-  /* -----------------------------------------------
-     BOOK
-  ------------------------------------------------ */
+  /* BOOK */
 
   .memory-book-wrapper {
     padding:
-      0 30px;
+      0 28px;
   }
 
   .memory-book {
-    width: 100%;
-
-    /*
-      Satu halaman saja di HP.
-      Tidak memanjang ke bawah.
-    */
+    width:
+      100%;
 
     height:
-      min(72vh, 600px);
+      min(74vh, 620px);
 
     min-height:
       480px;
 
     max-height:
-      600px;
+      620px;
 
     aspect-ratio:
       auto;
 
-    padding: 7px;
+    padding:
+      7px;
   }
-
 
   .book-inner {
-    width: 100%;
-    height: 100%;
+    width:
+      100%;
 
-    min-height: 0;
+    height:
+      100%;
 
-    overflow: hidden;
+    min-height:
+      0;
+
+    overflow:
+      hidden;
   }
 
 
-  /* -----------------------------------------------
-     DESKTOP OFF
-  ------------------------------------------------ */
+  /* DESKTOP OFF */
 
   .desktop-book-stage {
-    display: none;
+    display:
+      none;
   }
 
 
-  /* -----------------------------------------------
-     MOBILE STAGE
-  ------------------------------------------------ */
+  /* MOBILE STAGE */
 
   .mobile-book-stage {
-    position: absolute;
+    position:
+      absolute;
 
-    inset: 0;
+    inset:
+      0;
 
-    display: block;
+    display:
+      block;
 
-    width: 100%;
-    height: 100%;
+    width:
+      100%;
 
-    overflow: hidden;
+    height:
+      100%;
+
+    overflow:
+      hidden;
 
     border-radius:
       12px;
   }
 
-
   .mobile-page-wrapper {
-    position: absolute;
+    position:
+      absolute;
 
-    inset: 0;
+    inset:
+      0;
 
-    width: 100%;
-    height: 100%;
-  }
-
-
-  .mobile-page-wrapper .memory-page {
-    width: 100%;
-    height: 100%;
-
-    min-height: 0;
-
-    padding:
-      8px 10px 14px;
-
-    overflow-x: hidden;
-
-    overflow-y: auto;
-
-    box-sizing: border-box;
-  }
-
-
-  /* -----------------------------------------------
-     MEDIA LEBIH BESAR
-  ------------------------------------------------ */
-
-  .mobile-page-wrapper .memory-media {
-    width: 100%;
-
-    margin-top:
-      5px;
-
-    padding:
-      4px;
-  }
-
-
-  .mobile-page-wrapper
-  .memory-media img,
-  .mobile-page-wrapper
-  .memory-media video {
-
-    width: auto;
-    height: auto;
-
-    max-width:
+    width:
       100%;
 
-    /*
-      Tambah tinggi media agar
-      lebih dominan.
-    */
+    height:
+      100%;
+  }
+
+  .mobile-page-wrapper .memory-page {
+    width:
+      100%;
+
+    height:
+      100%;
+
+    min-height:
+      0;
+
+    padding:
+      8px 8px 12px;
+
+    overflow-x:
+      hidden;
+
+    overflow-y:
+      auto;
+
+    box-sizing:
+      border-box;
+  }
+
+
+  /* =======================================================
+     MOBILE MEDIA 9:16
+  ======================================================= */
+
+  .mobile-page-wrapper .memory-media {
+
+    width:
+      min(
+        78vw,
+        320px
+      );
+
+    aspect-ratio:
+      9 / 16;
+
+    height:
+      auto;
+
+    margin:
+      5px auto 0;
+
+    padding:
+      6px;
+
+    box-sizing:
+      border-box;
+
+    display:
+      flex;
+
+    align-items:
+      center;
+
+    justify-content:
+      center;
+
+    overflow:
+      hidden;
+
+    background:
+      #fffdf8;
+
+    transform:
+      rotate(-1deg);
+
+    box-shadow:
+      0 10px 22px
+      rgba(0, 0, 0, 0.18);
+  }
+
+  .mobile-page-wrapper
+  .page-right .memory-media {
+    transform:
+      rotate(1deg);
+  }
+
+
+  /* =======================================================
+     MOBILE PHOTO 9:16
+  ======================================================= */
+
+  .mobile-page-wrapper
+  .memory-media img {
+
+    width:
+      100%;
+
+    height:
+      100%;
+
+    max-width:
+      none;
 
     max-height:
-      54vh;
+      none;
 
     object-fit:
       contain;
+
+    object-position:
+      center;
+
+    border:
+      none;
+
+    border-radius:
+      1px;
   }
 
 
-  /* -----------------------------------------------
-     TAG SUPER KECIL
-  ------------------------------------------------ */
+  /* =======================================================
+     MOBILE VIDEO 9:16
+  ======================================================= */
 
-  .mobile-page-wrapper .memory-tag {
-    display: inline-block;
+  .mobile-page-wrapper
+  .memory-media video {
+
+    width:
+      100%;
+
+    height:
+      100%;
+
+    max-width:
+      none;
+
+    max-height:
+      none;
+
+    object-fit:
+      contain;
+
+    object-position:
+      center;
+
+    background:
+      #000;
+
+    border:
+      none;
+
+    border-radius:
+      1px;
+
+    pointer-events:
+      auto;
+  }
+
+
+  /* =======================================================
+     HOVER
+  ======================================================= */
+
+  .mobile-page-wrapper
+  .memory-media:hover {
+
+    transform:
+      rotate(-1deg)
+      scale(1.015);
+  }
+
+  .mobile-page-wrapper
+  .page-right .memory-media:hover {
+
+    transform:
+      rotate(1deg)
+      scale(1.015);
+  }
+
+
+  /* =======================================================
+     TAG KECIL
+  ======================================================= */
+
+  .mobile-page-wrapper
+  .memory-tag {
+
+    display:
+      inline-block;
 
     margin-top:
       5px;
@@ -1573,24 +1858,29 @@
       rotate(-1deg);
   }
 
-
   .mobile-page-wrapper
   .page-right .memory-tag {
+
     transform:
       rotate(1deg);
   }
 
 
-  /* -----------------------------------------------
-     CAPTION SUPER KECIL
-  ------------------------------------------------ */
+  /* =======================================================
+     CAPTION KECIL
+  ======================================================= */
 
-  .mobile-page-wrapper .memory-note {
-    width: 100%;
+  .mobile-page-wrapper
+  .memory-note {
 
-    max-width: 100%;
+    width:
+      100%;
 
-    min-height: 36px;
+    max-width:
+      100%;
+
+    min-height:
+      34px;
 
     margin-top:
       5px;
@@ -1598,12 +1888,15 @@
     padding:
       5px 8px;
 
-    box-sizing: border-box;
+    box-sizing:
+      border-box;
   }
 
+  .mobile-page-wrapper
+  .memory-note p {
 
-  .mobile-page-wrapper .memory-note p {
-    margin: 0;
+    margin:
+      0;
 
     font-size:
       10px;
@@ -1615,8 +1908,9 @@
       left;
   }
 
+  .mobile-page-wrapper
+  .memory-note span {
 
-  .mobile-page-wrapper .memory-note span {
     margin-top:
       1px;
 
@@ -1625,53 +1919,68 @@
   }
 
 
-  /* -----------------------------------------------
-     DECORATIONS
-  ------------------------------------------------ */
+  /* =======================================================
+     DECORATION
+  ======================================================= */
 
-  .mobile-page-wrapper .paper-flower {
-    right: 7px;
-    bottom: 6px;
+  .mobile-page-wrapper
+  .paper-flower {
+
+    right:
+      7px;
+
+    bottom:
+      6px;
 
     font-size:
       20px;
   }
 
-  .mobile-page-wrapper .paper-tape-small {
-    right: 22px;
-    top: 60px;
+  .mobile-page-wrapper
+  .paper-tape-small {
 
-    width: 28px;
-    height: 8px;
+    right:
+      22px;
+
+    top:
+      60px;
+
+    width:
+      28px;
+
+    height:
+      8px;
   }
 
 
-  /* -----------------------------------------------
+  /* =======================================================
      SPINE
-  ------------------------------------------------ */
+  ======================================================= */
 
-  .mobile-book-stage .book-spine {
-    display: none;
+  .mobile-book-stage
+  .book-spine {
+
+    display:
+      none;
   }
 
 
-  /* -----------------------------------------------
-     DESKTOP ARROW OFF
-  ------------------------------------------------ */
+  /* =======================================================
+     ARROWS
+  ======================================================= */
 
   .desktop-book-arrow {
-    display: none;
+    display:
+      none;
   }
 
-
-  /* -----------------------------------------------
-     MOBILE ARROW
-  ------------------------------------------------ */
-
   .mobile-book-arrow {
-    display: flex !important;
 
-    z-index: 200;
+    display:
+      flex !important;
+
+    z-index:
+      200;
 
     width:
       42px;
@@ -1691,31 +2000,34 @@
   }
 
 
-  /* -----------------------------------------------
-     DESKTOP PAGINATION OFF
-  ------------------------------------------------ */
+  /* =======================================================
+     PAGINATION
+  ======================================================= */
 
   .desktop-pagination {
-    display: none;
+    display:
+      none;
   }
 
-
-  /* -----------------------------------------------
-     MOBILE PAGINATION
-  ------------------------------------------------ */
-
   .memory-mobile-pagination {
-    position: relative;
 
-    z-index: 30;
+    position:
+      relative;
 
-    display: flex;
+    z-index:
+      30;
 
-    align-items: center;
+    display:
+      flex;
 
-    justify-content: center;
+    align-items:
+      center;
 
-    gap: 5px;
+    justify-content:
+      center;
+
+    gap:
+      5px;
 
     margin-top:
       8px;
@@ -1727,7 +2039,9 @@
       rgba(255, 255, 255, 0.65);
   }
 
-  .memory-mobile-pagination span:first-child {
+  .memory-mobile-pagination
+  span:first-child {
+
     color:
       #ff72b7;
 
@@ -1736,13 +2050,13 @@
   }
 
 
-  /* -----------------------------------------------
+  /* =======================================================
      BOTTOM
-  ------------------------------------------------ */
+  ======================================================= */
 
   .memory-bottom {
     margin-top:
-      9px;
+      8px;
   }
 
   .memory-bottom p {
@@ -1751,6 +2065,7 @@
   }
 
   .bottom-hearts {
+
     margin-top:
       2px;
 
@@ -1762,6 +2077,7 @@
   }
 
   .memory-next-button {
+
     margin-top:
       7px;
 
@@ -1773,11 +2089,12 @@
   }
 
 
-  /* -----------------------------------------------
-     IMAGE LIGHTBOX
-  ------------------------------------------------ */
+  /* =======================================================
+     FULLSCREEN FOTO 9:16 DI HP
+  ======================================================= */
 
   .memory-image-lightbox {
+
     width:
       100vw;
 
@@ -1789,26 +2106,40 @@
   }
 
   .memory-full-image {
+
     width:
-      auto;
+      min(
+        88vw,
+        360px
+      );
+
+    aspect-ratio:
+      9 / 16;
 
     height:
       auto;
 
     max-width:
-      100vw;
+      88vw;
 
     max-height:
-      100dvh;
+      90dvh;
 
     object-fit:
       contain;
 
+    object-position:
+      center;
+
+    background:
+      #000;
+
     border-radius:
-      0;
+      4px;
   }
 
   .memory-image-close {
+
     top:
       12px;
 
@@ -1835,55 +2166,99 @@
 
   .memory-book-screen {
     padding:
-      20px 8px 28px;
+      18px 6px 25px;
   }
-
 
   .memory-header h1 {
     font-size:
       36px;
   }
 
-
   .memory-book-wrapper {
     padding:
-      0 28px;
+      0 26px;
   }
 
-
   .memory-book {
+
     height:
-      min(70vh, 520px);
+      min(72vh, 560px);
 
     min-height:
       430px;
 
     max-height:
-      520px;
+      560px;
   }
 
 
-  .mobile-page-wrapper .memory-page {
-    padding:
-      7px 8px 12px;
-  }
-
-
-  /* MEDIA EXTRA BESAR */
+  /* ================================================
+     9:16 FRAME
+  ================================================= */
 
   .mobile-page-wrapper
-  .memory-media img,
+  .memory-media {
+
+    width:
+      min(
+        76vw,
+        300px
+      );
+
+    aspect-ratio:
+      9 / 16;
+
+    padding:
+      5px;
+
+    margin-top:
+      4px;
+  }
+
+
+  /* ================================================
+     FOTO
+  ================================================= */
+
+  .mobile-page-wrapper
+  .memory-media img {
+
+    width:
+      100%;
+
+    height:
+      100%;
+
+    object-fit:
+      contain;
+  }
+
+
+  /* ================================================
+     VIDEO
+  ================================================= */
+
   .mobile-page-wrapper
   .memory-media video {
 
-    max-height:
-      52vh;
+    width:
+      100%;
+
+    height:
+      100%;
+
+    object-fit:
+      contain;
   }
 
 
-  /* TAG */
+  /* ================================================
+     TAG
+  ================================================= */
 
-  .mobile-page-wrapper .memory-tag {
+  .mobile-page-wrapper
+  .memory-tag {
+
     margin-top:
       4px;
 
@@ -1895,11 +2270,15 @@
   }
 
 
-  /* CAPTION */
+  /* ================================================
+     CAPTION
+  ================================================= */
 
-  .mobile-page-wrapper .memory-note {
+  .mobile-page-wrapper
+  .memory-note {
+
     min-height:
-      32px;
+      30px;
 
     margin-top:
       4px;
@@ -1908,7 +2287,9 @@
       4px 7px;
   }
 
-  .mobile-page-wrapper .memory-note p {
+  .mobile-page-wrapper
+  .memory-note p {
+
     font-size:
       9px;
 
@@ -1916,15 +2297,20 @@
       1.2;
   }
 
-  .mobile-page-wrapper .memory-note span {
+  .mobile-page-wrapper
+  .memory-note span {
+
     font-size:
       13px;
   }
 
 
-  /* ARROW */
+  /* ================================================
+     ARROW
+  ================================================= */
 
   .mobile-book-arrow {
+
     width:
       38px;
 
@@ -1933,19 +2319,50 @@
   }
 
   .book-arrow span {
+
     font-size:
       27px;
   }
 
 
-  /* BOTTOM */
+  /* ================================================
+     FULLSCREEN FOTO 9:16
+  ================================================= */
+
+  .memory-full-image {
+
+    width:
+      min(
+        86vw,
+        320px
+      );
+
+    aspect-ratio:
+      9 / 16;
+
+    max-width:
+      86vw;
+
+    max-height:
+      88dvh;
+
+    object-fit:
+      contain;
+  }
+
+
+  /* ================================================
+     BOTTOM
+  ================================================= */
 
   .memory-bottom {
+
     margin-top:
-      7px;
+      6px;
   }
 
   .memory-next-button {
+
     padding:
       7px 16px;
 
