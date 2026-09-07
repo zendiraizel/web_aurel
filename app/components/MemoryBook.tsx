@@ -729,249 +729,221 @@
     MEMORY PAGE
   ========================================================= */
 
-  function MemoryPage({
-    item,
-    side,
-  }: {
-    item: MemoryItem;
-    side: "left" | "right";
-  }) {
-    const [
-      isOpen,
-      setIsOpen,
-    ] = useState(false);
+    function MemoryPage({
+      item,
+      side,
+    }: {
+      item: MemoryItem;
+      side: "left" | "right";
+    }) {
+      const [isOpen, setIsOpen] = useState(false);
 
-
-    return (
-      <>
-        {/* =================================================
-            PAGE
-        ================================================= */}
-
-        <div
-          className={`memory-page page-${side}`}
-        >
-
-          <div className="paper-texture" />
-
-          <div className="tape tape-top" />
-
-
-          {/* =================================================
-              MEDIA
-          ================================================= */}
-
+      return (
+        <>
           <div
-            className="memory-media"
-
-            onClick={() => {
-
-              /*
-                Hanya gambar yang membuka
-                fullscreen.
-
-                Video tetap menjadi native
-                browser player.
-              */
-
-              if (
-                item.type === "image"
-              ) {
-                setIsOpen(true);
-              }
-
-            }}
-
-            role={
-              item.type === "image"
-                ? "button"
-                : undefined
-            }
-
-            tabIndex={
-              item.type === "image"
-                ? 0
-                : undefined
-            }
-
-            onKeyDown={(e) => {
-
-              if (
-                item.type === "image" &&
-                (
-                  e.key === "Enter" ||
-                  e.key === " "
-                )
-              ) {
-                setIsOpen(true);
-              }
-
-            }}
-
-            aria-label={
-              item.type === "image"
-                ? `Buka ${item.title}`
-                : undefined
-            }
+            className={`memory-page page-${side}`}
           >
+            <div className="paper-texture" />
+            <div className="tape tape-top" />
 
-            {/* =============================================
-                IMAGE
-            ============================================= */}
+            {/* =================================================
+                MEDIA
+            ================================================= */}
+            <div
+              className={`memory-media ${
+                item.type === "video"
+                  ? "memory-video-media"
+                  : "memory-image-media"
+              }`}
+              onClick={() => {
+                if (item.type === "image") {
+                  setIsOpen(true);
+                }
+              }}
+              role={
+                item.type === "image"
+                  ? "button"
+                  : undefined
+              }
+              tabIndex={
+                item.type === "image"
+                  ? 0
+                  : undefined
+              }
+              onKeyDown={(e) => {
+                if (
+                  item.type === "image" &&
+                  (e.key === "Enter" ||
+                    e.key === " ")
+                ) {
+                  e.preventDefault();
+                  setIsOpen(true);
+                }
+              }}
+              aria-label={
+                item.type === "image"
+                  ? `Buka ${item.title}`
+                  : undefined
+              }
+            >
 
-            {item.type === "image" ? (
+              {/* =================================================
+                  IMAGE
+              ================================================= */}
+              {item.type === "image" ? (
+                <img
+                  src={item.src}
+                  alt={item.title}
+                  draggable={false}
+                />
+              ) : item.src ? (
 
-              <img
-                src={item.src}
-                alt={item.title}
-                draggable={false}
-              />
+                /* =================================================
+                  VIDEO
+                ================================================= */
+                <video
+                  src={item.src}
+                  controls
+                  playsInline
+                  preload="metadata"
 
-            ) : item.src ? (
-
-              /* =========================================
-                VIDEO
-              ========================================= */
-
-              <video
-                src={item.src}
-
-                controls
-
-                playsInline
-
-                preload="metadata"
-
-                controlsList="nodownload"
-
-                onClick={(e) => {
                   /*
-                    Jangan buka image viewer
-                    ketika video ditekan.
+                    Tetap menggunakan player bawaan browser.
+                    Fullscreen dimatikan supaya HP tidak
+                    mengubah orientasi layar.
                   */
+                  controlsList="nodownload nofullscreen"
+                  disablePictureInPicture
 
-                  e.stopPropagation();
-                }}
-              />
+                  /*
+                    Jangan sampai klik video dianggap
+                    sebagai klik untuk membuka gambar.
+                  */
+                  onClick={(e) => {
+                    e.stopPropagation();
+                  }}
+                />
+              ) : (
 
-            ) : (
-
-              /* =========================================
-                EMPTY MEDIA
-              ========================================= */
-
-              <div
-                className="memory-media-empty"
-              >
-                Media belum tersedia
-              </div>
-
-            )}
-
-          </div>
-
-
-          {/* =================================================
-              TITLE
-          ================================================= */}
-
-          {item.title && (
-
-            <div className="memory-tag">
-              {item.title}
+                /* =================================================
+                  EMPTY MEDIA
+                ================================================= */
+                <div className="memory-media-empty">
+                  Media belum tersedia
+                </div>
+              )}
             </div>
 
-          )}
+            {/* =================================================
+                TITLE
+            ================================================= */}
+            {item.title && (
+              <div className="memory-tag">
+                {item.title}
+              </div>
+            )}
 
+            {/* =================================================
+                NOTE
+            ================================================= */}
+            <div className="memory-note">
+              <p>
+                {item.caption}
+              </p>
 
-          {/* =================================================
-              NOTE
-          ================================================= */}
+              <span>
+                ♡
+              </span>
+            </div>
 
-          <div className="memory-note">
+            {/* =================================================
+                DECORATION
+            ================================================= */}
+            <div className="paper-flower">
+              ✿
+            </div>
 
-            <p>
-              {item.caption}
-            </p>
-
-            <span>
-              ♡
-            </span>
-
+            <div className="paper-tape-small" />
           </div>
 
+          {/* =====================================================
+              IMAGE FULLSCREEN
+          ===================================================== */}
+          <AnimatePresence>
+            {isOpen &&
+              item.type === "image" &&
+              typeof document !== "undefined" &&
+              createPortal(
+                <motion.div
+                  className="memory-image-lightbox"
+                  initial={{
+                    opacity: 0,
+                  }}
+                  animate={{
+                    opacity: 1,
+                  }}
+                  exit={{
+                    opacity: 0,
+                  }}
+                  transition={{
+                    duration: 0.25,
+                  }}
+                  onClick={() =>
+                    setIsOpen(false)
+                  }
+                >
+                  <button
+                    type="button"
+                    className="memory-image-close"
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      setIsOpen(false);
+                    }}
+                    aria-label="Tutup gambar"
+                  >
+                    ×
+                  </button>
 
-          {/* =================================================
-              DECORATION
-          ================================================= */}
+                  <motion.img
+                    src={item.src}
+                    alt={item.title}
+                    className="memory-full-image"
 
-          <div className="paper-flower">
-            ✿
-          </div>
+                    initial={{
+                      scale: 0.88,
+                      opacity: 0,
+                    }}
 
-          <div className="paper-tape-small" />
+                    animate={{
+                      scale: 1,
+                      opacity: 1,
+                    }}
 
-        </div>
+                    exit={{
+                      scale: 0.88,
+                      opacity: 0,
+                    }}
 
+                    transition={{
+                      duration: 0.3,
+                      ease: [
+                        0.22,
+                        1,
+                        0.36,
+                        1,
+                      ],
+                    }}
 
-        {/* =====================================================
-            IMAGE FULLSCREEN
-        ===================================================== */}
+                    onClick={(e) =>
+                      e.stopPropagation()
+                    }
 
-        <AnimatePresence>
-        {isOpen &&
-          item.type === "image" &&
-          typeof document !== "undefined" &&
-          createPortal(
-            <motion.div
-              className="memory-image-lightbox"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 0.25 }}
-              onClick={() => setIsOpen(false)}
-            >
-              <button
-                type="button"
-                className="memory-image-close"
-                onClick={(e) => {
-                  e.stopPropagation();
-                  setIsOpen(false);
-                }}
-                aria-label="Tutup gambar"
-              >
-                ×
-              </button>
-
-              <motion.img
-                src={item.src}
-                alt={item.title}
-                className="memory-full-image"
-                initial={{
-                  scale: 0.88,
-                  opacity: 0,
-                }}
-                animate={{
-                  scale: 1,
-                  opacity: 1,
-                }}
-                exit={{
-                  scale: 0.88,
-                  opacity: 0,
-                }}
-                transition={{
-                  duration: 0.3,
-                  ease: [0.22, 1, 0.36, 1],
-                }}
-                onClick={(e) => e.stopPropagation()}
-                draggable={false}
-              />
-            </motion.div>,
-            document.body
-          )}
-
-        </AnimatePresence>
-
-      </>
-    );
-  }
+                    draggable={false}
+                  />
+                </motion.div>,
+                document.body
+              )}
+          </AnimatePresence>
+        </>
+      );
+    }

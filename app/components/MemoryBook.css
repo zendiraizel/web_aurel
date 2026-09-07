@@ -2370,3 +2370,431 @@
       10px;
   }
 }
+/* =========================================================
+   FIX VIDEO MOBILE + FULLSCREEN
+   Paste di PALING BAWAH MemoryBook.css
+========================================================= */
+
+/* ---------------------------------------------------------
+   VIDEO NORMAL
+   --------------------------------------------------------- */
+
+.memory-media video {
+  display: block;
+  width: 100%;
+  height: 100%;
+  max-width: 100%;
+  max-height: 100%;
+
+  object-fit: contain;
+  object-position: center;
+
+  background: #000;
+
+  border: 0 !important;
+  outline: 0 !important;
+  border-radius: 0 !important;
+
+  box-shadow: none !important;
+
+  margin: 0;
+  padding: 0;
+
+  flex-shrink: 0;
+  pointer-events: auto;
+}
+
+
+/* ---------------------------------------------------------
+   HILANGKAN EFEK BINGKAI KHUSUS VIDEO
+   --------------------------------------------------------- */
+
+.memory-media:has(video) {
+  padding: 0 !important;
+  border: 0 !important;
+  outline: 0 !important;
+
+  background: #000 !important;
+
+  box-shadow: none !important;
+
+  overflow: hidden;
+
+  cursor: default;
+
+  /* Jangan membesar saat disentuh */
+  transform: none;
+}
+
+
+/* Jangan beri efek hover pada frame video */
+
+.memory-media:has(video):hover {
+  transform: none !important;
+  box-shadow: none !important;
+}
+
+
+/* ---------------------------------------------------------
+   MOBILE
+   --------------------------------------------------------- */
+
+@media (max-width: 800px) {
+
+  /* Frame video mengikuti area media */
+  .mobile-page-wrapper .memory-media:has(video) {
+    width: min(78vw, 320px);
+
+    aspect-ratio: 9 / 16;
+
+    height: auto;
+
+    padding: 0 !important;
+
+    margin: 5px auto 0;
+
+    background: #000 !important;
+
+    border: 0 !important;
+    outline: 0 !important;
+
+    box-shadow: none !important;
+
+    overflow: hidden;
+
+    transform: none !important;
+  }
+
+
+  /* Video di dalam frame */
+
+  .mobile-page-wrapper .memory-media:has(video) video {
+    display: block;
+
+    width: 100%;
+    height: 100%;
+
+    max-width: 100%;
+    max-height: 100%;
+
+    object-fit: contain;
+    object-position: center;
+
+    background: #000;
+
+    border: 0 !important;
+    outline: 0 !important;
+
+    border-radius: 0 !important;
+
+    box-shadow: none !important;
+
+    transform: none !important;
+
+    margin: 0;
+    padding: 0;
+  }
+
+
+  /* Jangan zoom video ketika disentuh */
+
+  .mobile-page-wrapper
+  .memory-media:has(video):hover {
+    transform: none !important;
+    box-shadow: none !important;
+  }
+
+
+  .mobile-page-wrapper
+  .memory-media:has(video):active {
+    transform: none !important;
+  }
+}
+
+
+/* ---------------------------------------------------------
+   SMALL PHONE
+   --------------------------------------------------------- */
+
+@media (max-width: 480px) {
+
+  .mobile-page-wrapper .memory-media:has(video) {
+    width: min(76vw, 300px);
+
+    aspect-ratio: 9 / 16;
+
+    height: auto;
+
+    padding: 0 !important;
+
+    margin: 4px auto 0;
+
+    background: #000 !important;
+
+    border: 0 !important;
+
+    box-shadow: none !important;
+
+    overflow: hidden;
+
+    transform: none !important;
+  }
+
+
+  .mobile-page-wrapper
+  .memory-media:has(video) video {
+    width: 100%;
+    height: 100%;
+
+    max-width: 100%;
+    max-height: 100%;
+
+    object-fit: contain;
+    object-position: center;
+
+    background: #000;
+
+    border: 0 !important;
+    outline: 0 !important;
+
+    border-radius: 0 !important;
+
+    box-shadow: none !important;
+
+    transform: none !important;
+  }
+}
+
+
+/* =========================================================
+   FULLSCREEN VIDEO
+   ========================================================= */
+
+/*
+   Ketika tombol fullscreen bawaan video ditekan,
+   browser akan menggunakan aturan ini.
+*/
+
+.memory-media video:fullscreen {
+  position: fixed !important;
+
+  inset: 0 !important;
+
+  width: 100vw !important;
+  height: 100dvh !important;
+
+  max-width: 100vw !important;
+  max-height: 100dvh !important;
+
+  margin: 0 !important;
+  padding: 0 !important;
+
+  background: #000 !important;
+
+  border: none !important;
+  outline: none !important;
+  border-radius: 0 !important;
+
+  box-shadow: none !important;
+
+  object-fit: contain !important;
+  object-position: center !important;
+
+  transform: none !important;
+
+  z-index: 999999 !important;
+}
+
+
+/* Chrome / Android */
+
+.memory-media video:-webkit-full-screen {
+  position: fixed !important;
+
+  top: 0 !important;
+  left: 0 !important;
+
+  width: 100vw !important;
+  height: 100dvh !important;
+
+  max-width: 100vw !important;
+  max-height: 100dvh !important;
+
+  margin: 0 !important;
+  padding: 0 !important;
+
+  background: #000 !important;
+
+  border: none !important;
+  outline: none !important;
+  border-radius: 0 !important;
+
+  box-shadow: none !important;
+
+  object-fit: contain !important;
+  object-position: center !important;
+
+  transform: none !important;
+
+  z-index: 999999 !important;
+}
+
+
+/* ---------------------------------------------------------
+   FULLSCREEN KHUSUS MOBILE PORTRAIT
+   --------------------------------------------------------- */
+
+@media (max-width: 800px) and (orientation: portrait) {
+
+  .memory-media video:fullscreen {
+    width: 100vw !important;
+    height: 100dvh !important;
+
+    max-width: 100vw !important;
+    max-height: 100dvh !important;
+
+    object-fit: contain !important;
+
+    background: #000 !important;
+
+    transform: none !important;
+  }
+
+  .memory-media video:-webkit-full-screen {
+    width: 100vw !important;
+    height: 100dvh !important;
+
+    max-width: 100vw !important;
+    max-height: 100dvh !important;
+
+    object-fit: contain !important;
+
+    background: #000 !important;
+
+    transform: none !important;
+  }
+}
+
+
+/* ---------------------------------------------------------
+   FULLSCREEN VIDEO 1:1
+   --------------------------------------------------------- */
+
+/*
+   Video 1:1 tidak dipaksa menjadi 9:16.
+   Video tetap persegi, tetapi layar HP tetap portrait.
+   Area kosong akan menjadi hitam.
+*/
+
+@media (max-width: 800px) {
+
+  .memory-media video:fullscreen {
+    aspect-ratio: auto !important;
+
+    width: 100vw !important;
+    height: 100dvh !important;
+
+    object-fit: contain !important;
+
+    background: #000 !important;
+  }
+
+  .memory-media video:-webkit-full-screen {
+    aspect-ratio: auto !important;
+
+    width: 100vw !important;
+    height: 100dvh !important;
+
+    object-fit: contain !important;
+
+    background: #000 !important;
+  }
+}
+
+
+/* =========================================================
+   CEGAH ROTASI / TRANSFORM DARI SCRAPBOOK
+========================================================= */
+
+@media (max-width: 800px) {
+
+  .mobile-page-wrapper
+  .memory-media:has(video),
+  .mobile-page-wrapper
+  .memory-media:has(video) video {
+    rotate: none !important;
+  }
+
+  .mobile-page-wrapper
+  .memory-media:has(video):hover,
+  .mobile-page-wrapper
+  .memory-media:has(video):active {
+    rotate: none !important;
+    transform: none !important;
+  }
+}
+
+
+/* =========================================================
+   VIDEO FULLSCREEN TETAP DI ATAS SEMUA ELEMEN
+========================================================= */
+
+video:fullscreen {
+  z-index: 999999 !important;
+}
+
+video:-webkit-full-screen {
+  z-index: 999999 !important;
+}
+
+
+/* =========================================================
+   HILANGKAN FRAME SCRAPBOOK KETIKA VIDEO FULLSCREEN
+========================================================= */
+
+.memory-media:has(video:fullscreen) {
+  position: fixed !important;
+
+  inset: 0 !important;
+
+  width: 100vw !important;
+  height: 100dvh !important;
+
+  padding: 0 !important;
+  margin: 0 !important;
+
+  background: #000 !important;
+
+  border: none !important;
+  border-radius: 0 !important;
+
+  box-shadow: none !important;
+
+  transform: none !important;
+
+  z-index: 999998 !important;
+}
+
+
+.memory-media:has(video:-webkit-full-screen) {
+  position: fixed !important;
+
+  inset: 0 !important;
+
+  width: 100vw !important;
+  height: 100dvh !important;
+
+  padding: 0 !important;
+  margin: 0 !important;
+
+  background: #000 !important;
+
+  border: none !important;
+  border-radius: 0 !important;
+
+  box-shadow: none !important;
+
+  transform: none !important;
+
+  z-index: 999998 !important;
+}
