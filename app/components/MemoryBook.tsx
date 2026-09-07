@@ -110,6 +110,26 @@ const spreads: MemorySpread[] = [
       caption:
         "JEJE lagi 😂",
     },
+    
+  },
+
+  {
+    left: {
+      type: "video",
+      src: "/memories/hbd-aurel.mp4",
+      title: "LASTTT",
+      caption:
+        "IZIN EDIT AURELL",
+    },
+
+    right: {
+      type: "image",
+      src: "/memories/mbg.jpg/",
+      title: "LASTT",
+      caption:
+        "Aurel MBG, my bini guweh",
+    },
+    
   },
 ];
 
