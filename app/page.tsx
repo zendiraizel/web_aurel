@@ -250,7 +250,7 @@ export default function Home() {
                 mx-auto
                 mt-7
                 max-w-2xl
-                text-xs
+                text-base
                 leading-relaxed
                 text-white/90
                 drop-shadow-[0_3px_15px_rgba(0,0,0,0.8)]
@@ -883,7 +883,7 @@ export default function Home() {
                   mx-auto
                   mt-10
                   max-w-2xl
-                  text-lg
+                  text-base
                   leading-relaxed
                   text-pink-100
                   md:text-xl
