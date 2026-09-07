@@ -1,5 +1,5 @@
 "use client";
-
+import { createPortal } from "react-dom";
 import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import "./MemoryBook.css";
@@ -900,100 +900,56 @@ function MemoryPage({
 
       <AnimatePresence>
 
-        {isOpen &&
-          item.type === "image" && (
+       {isOpen &&
+  item.type === "image" &&
+  typeof document !== "undefined" &&
+  createPortal(
+    <motion.div
+      className="memory-image-lightbox"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 0.25 }}
+      onClick={() => setIsOpen(false)}
+    >
+      <button
+        type="button"
+        className="memory-image-close"
+        onClick={(e) => {
+          e.stopPropagation();
+          setIsOpen(false);
+        }}
+        aria-label="Tutup gambar"
+      >
+        ×
+      </button>
 
-            <motion.div
-              className="memory-image-lightbox"
-
-              initial={{
-                opacity: 0,
-              }}
-
-              animate={{
-                opacity: 1,
-              }}
-
-              exit={{
-                opacity: 0,
-              }}
-
-              transition={{
-                duration: 0.25,
-              }}
-
-              onClick={() => {
-                setIsOpen(false);
-              }}
-            >
-
-              {/* =========================================
-                  CLOSE BUTTON
-              ========================================= */}
-
-              <button
-                type="button"
-
-                className="memory-image-close"
-
-                onClick={(e) => {
-
-                  e.stopPropagation();
-
-                  setIsOpen(false);
-
-                }}
-
-                aria-label="Tutup gambar"
-              >
-                ×
-              </button>
-
-
-              {/* =========================================
-                  FULLSCREEN IMAGE
-              ========================================= */}
-
-              <motion.img
-
-                src={item.src}
-
-                alt={item.title}
-
-                className="memory-full-image"
-
-                initial={{
-                  scale: 0.88,
-                  opacity: 0,
-                }}
-
-                animate={{
-                  scale: 1,
-                  opacity: 1,
-                }}
-
-                exit={{
-                  scale: 0.88,
-                  opacity: 0,
-                }}
-
-                transition={{
-                  duration: 0.3,
-
-                  ease:
-                    [0.22, 1, 0.36, 1],
-                }}
-
-                onClick={(e) => {
-                  e.stopPropagation();
-                }}
-
-                draggable={false}
-              />
-
-            </motion.div>
-
-          )}
+      <motion.img
+        src={item.src}
+        alt={item.title}
+        className="memory-full-image"
+        initial={{
+          scale: 0.88,
+          opacity: 0,
+        }}
+        animate={{
+          scale: 1,
+          opacity: 1,
+        }}
+        exit={{
+          scale: 0.88,
+          opacity: 0,
+        }}
+        transition={{
+          duration: 0.3,
+          ease: [0.22, 1, 0.36, 1],
+        }}
+        onClick={(e) => e.stopPropagation()}
+        draggable={false}
+      />
+    </motion.div>,
+    document.body
+  )}
 
       </AnimatePresence>
 

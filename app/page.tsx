@@ -1,5 +1,5 @@
 "use client";
-
+import { createPortal } from "react-dom";
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import MemoryBook from "./components/MemoryBook";
@@ -119,8 +119,8 @@ export default function Home() {
               absolute
               left-1/2
               top-1/2
-              h-[500px]
-              w-[500px]
+              h-125
+              w-125
               -translate-x-1/2
               -translate-y-1/2
               rounded-full
@@ -817,7 +817,7 @@ export default function Home() {
                   via-white
                   to-rose-300
                   bg-clip-text
-                  text-3xl
+                  text-2xl
                   font-bold
                   text-transparent
                   md:text-5xl
