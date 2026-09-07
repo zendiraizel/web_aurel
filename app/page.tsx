@@ -247,14 +247,14 @@ export default function Home() {
                   delay: 1,
                 }}
                 className="
-                  mx-auto
-                  mt-7
-                  max-w-2xl
-                  text-base
-                  leading-relaxed
-                  text-white/90
-                  drop-shadow-[0_3px_15px_rgba(0,0,0,0.8)]
-                  md:text-lg
+                mx-auto
+                mt-7
+                max-w-2xl
+                text-xs
+                leading-relaxed
+                text-white/90
+                drop-shadow-[0_3px_15px_rgba(0,0,0,0.8)]
+                md:text-lg
                 "
               >
                 Om punya sesuatu yang sempat om bilang ke dd
